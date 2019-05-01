@@ -8,9 +8,9 @@ TEMPS=( 65000 80000 90000 )
 PWMS=(      0   153   255 )
 
 # hwmon paths, hardcoded for one amdgpu card at hwmon0, adjust as needed
-FILE_PWM=/sys/class/drm/card0/device/hwmon/hwmon0/pwm1
-FILE_FANMODE=/sys/class/drm/card0/device/hwmon/hwmon0/pwm1_enable
-FILE_TEMP=/sys/class/drm/card0/device/hwmon/hwmon0/temp1_input
+FILE_PWM=/sys/class/hwmon/hwmon1/pwm1
+FILE_FANMODE=/sys/class/hwmon/hwmon1/pwm1_enable
+FILE_TEMP=/sys/class/hwmon/hwmon1/temp1_input
 # might want to use this later
 #FILE_TEMP_CRIT=/sys/class/hwmon/hwmon0/temp1_crit_hyst
 
