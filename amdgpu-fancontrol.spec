@@ -1,12 +1,13 @@
 Summary:	Simple tool to control AMD graphics card fan
 Name:		amdgpu-fancontrol	
-Version:	1.0
+Version:	2.0
 Release:	1
 License:	GPLv3
-Group:		Monitoring
+Group:		System/Configuration/Hardware
 Url:		https://github.com/Kelpee/amdgpu-fancontrol
-Source0:    https://github.com/Kelpee/amdgpu-fancontrol/archive/%{version}.tar.gz
-BuildArch:  noarch
+Source0:	https://github.com/Kelpee/amdgpu-fancontrol/archive/%{version}.tar.gz
+Source1:	%{name}.cfg
+BuildArch:	noarch
 
 Requires:	bash
 
@@ -34,10 +35,10 @@ ROSA Fresh R11.
 %install
 mkdir -p %{buildroot}%{_unitdir} %{buildroot}%{_sysconfdir} %{buildroot}%{_bindir}
 install -p -m 755 %{name} %{buildroot}%{_bindir}
-install -p -m 644 etc-%{name}.cfg %{buildroot}%{_sysconfdir}/%{name}.cfg
 install -p -m 644 %{name}.service %{buildroot}%{_unitdir}
+cp	%{SOURCE1}	%{buildroot}%{_sysconfdir}/%{name}.cfg
 
 
 %post
-systemctl enable %{name}.service
-systemctl start  %{name}.service
+systemctl	enable	%{name}.service
+systemctl	start	%{name}.service
