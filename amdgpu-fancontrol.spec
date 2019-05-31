@@ -1,6 +1,6 @@
 Summary:	Simple tool to control AMD graphics card fan
 Name:		amdgpu-fancontrol	
-Version:	3.0
+Version:	4.0
 Release:	1
 License:	GPLv3
 Group:		System/Configuration/Hardware
@@ -47,3 +47,12 @@ systemctl	start	%{name}.service
 %preun
 systemctl	stop	%{name}.service
 systemctl	disable	%{name}.service
+
+%postun
+echo	"1"	>	/sys/class//hwmon/hwmon1/pwm1_enable
+echo	"155"	>	/sys/class//hwmon/hwmon1/pwm1
+echo
+echo
+echo	"Restart your computer."
+echo
+echo
