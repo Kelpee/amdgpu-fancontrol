@@ -1,6 +1,6 @@
 Summary:	Simple tool to control AMD graphics card fan
 Name:		amdgpu-fancontrol	
-Version:	5.0
+Version:	1.0
 Release:	1
 License:	GPLv3
 Group:		System/Configuration/Hardware
