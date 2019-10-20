@@ -84,7 +84,7 @@ function interpolate_pwm {
     HIGHERTEMP=${TEMPS[i]}
     LOWERPWM=${PWMS[i-1]}
     HIGHERPWM=${PWMS[i]}
-    PWM=$(echo "( ( $TEMP - $LOWERTEMP ) * ( $HIGHERPWM - $LOWERPWM ) / ( $HIGHERTEMP - $LOWERTEMP ) ) + $LOWERPWM" | bc)
+    PWM=$[( ( $TEMP - $LOWERTEMP ) * ( $HIGHERPWM - $LOWERPWM ) / ( $HIGHERTEMP - $LOWERTEMP ) ) + $LOWERPWM]
     echo "interpolated pwm value for temperature $TEMP is: $PWM"
     set_pwm "$PWM"
     return
